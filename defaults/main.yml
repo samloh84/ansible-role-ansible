@@ -1,1 +1,2 @@
 prefix: /opt/ansible
+install_latest: yes

@@ -1,16 +1,7 @@
-#- git:
-#     repo: git://github.com/ansible/ansible.git
-#     recursive: yes
-#     dest: {{ prefix }}
-#
-#- template:
-#    src: "templates/ansible.sh.j2"
-#    dest: "/etc/profile.d/ansible.sh"
+- name: install ansible from ansible git repo
+  include: tasks/install_ansible.yml
+  when: install_latest
 
-- yum:
-    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-    state: present
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
-- yum:
-    name: ansible
-    state: present
+- name: install ansible from epel repo
+  include: tasks/install_epel_ansible.yml
+  when: not install_latest
