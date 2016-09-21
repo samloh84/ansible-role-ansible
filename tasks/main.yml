@@ -1,0 +1,16 @@
+#- git:
+#     repo: git://github.com/ansible/ansible.git
+#     recursive: yes
+#     dest: {{ prefix }}
+#
+#- template:
+#    src: "templates/ansible.sh.j2"
+#    dest: "/etc/profile.d/ansible.sh"
+
+- yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state: present
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+- yum:
+    name: ansible
+    state: present
