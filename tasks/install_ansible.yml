@@ -2,6 +2,25 @@
     name: ansible
     state: absent
 
+- yum:
+    name: "{{ item }}"
+    state: present
+    with_items:
+      - git
+      - python2
+      - python2-devel
+      - gcc
+
+- pip:
+    name: "{{ item }}"
+    state: present
+    with_items:
+      - paramiko
+      - PyYAML
+      - Jinja2
+      - httplib2
+      - six
+
 - git:
      repo: git://github.com/ansible/ansible.git
      recursive: yes
