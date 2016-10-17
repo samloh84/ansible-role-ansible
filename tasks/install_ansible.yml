@@ -27,6 +27,6 @@
      dest: "{{ prefix }}"
 
 - template:
-    src: "templates/ansible.sh.j2"
+    src: "ansible.sh.j2"
     dest: "/etc/profile.d/ansible.sh"
 
