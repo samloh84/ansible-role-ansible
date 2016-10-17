@@ -29,4 +29,6 @@
 - template:
     src: "ansible.sh.j2"
     dest: "/etc/profile.d/ansible.sh"
+    mode: 0644
+
 
